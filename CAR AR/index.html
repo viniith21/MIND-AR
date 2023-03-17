@@ -7,11 +7,12 @@
 </head>
 
 <body>
-  <a-scene color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+  <a-scene mindar-image="imageTargetSrc:targets.mind; showStats: true;" color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
-      <img id="card" src="brain1.png" loading="lazy" />
-      <a-asset-item id="avatarModel" src="brain1.gltf" loading="lazy"></a-asset-item>
+      <img id="card" src="./ASSETS/brain.png" loading="lazy" />
+      <a-asset-item id="avatarModel" src="./ASSETS/brain1.gltf" loading="lazy"></a-asset-item>
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
