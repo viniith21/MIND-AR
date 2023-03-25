@@ -1,4 +1,4 @@
-import MindAR from "mind-ar-sdk";
+const MindAR = require("mind-ar-sdk");
 
 // Load the video file
 const videoFile = "mp4.mp4";
@@ -16,7 +16,7 @@ project.addVideo(video);
 project.addMarker(arMarker);
 
 // Set up the trigger to play the video when the AR marker is scanned
-project.addTrigger(arMarker, () => {
+project.addTrigger(arMarker, function () {
   video.play();
 });
 
