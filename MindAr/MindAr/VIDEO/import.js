@@ -1,4 +1,4 @@
-const MindAR = require("mind-ar-sdk");
+const MindAR = requires("mind-ar-sdk");
 
 // Load the video file
 const videoFile = "mp4.mp4";
