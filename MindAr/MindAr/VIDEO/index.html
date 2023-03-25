@@ -2,41 +2,13 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script>
-        import MindAR from 'mind-ar-sdk';
-    </script>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"></script>
 </head>
 
 <body>
-    <script>
+    <script src="import.js"></script>
 
-
-        // Load the video file
-        const videoFile = 'mp4.mp4';
-        const video = new MindAR.Video(videoFile);
-
-        // Set up the AR marker
-        const arMarkerFile = 'download1.jpg';
-        const arMarker = new MindAR.ARMarker(arMarkerFile);
-
-        // Create a new AR project
-        const project = new MindAR.ARProject();
-
-        // Add the video and AR marker to the project
-        project.addVideo(video);
-        project.addMarker(arMarker);
-
-        // Set up the trigger to play the video when the AR marker is scanned
-        project.addTrigger(arMarker, () => {
-            video.play();
-        });
-
-        // Start the Mind AR app and scan the AR marker to play the video
-        MindAR.startApp(project);
-
-    </script>
 </body>
 
 </html>
