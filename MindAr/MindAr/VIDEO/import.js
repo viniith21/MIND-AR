@@ -1,3 +1,4 @@
+import * as MindAR from "mind-ar";
 // create an AR scene
 const scene = new MindAR.Scene();
 
