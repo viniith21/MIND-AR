@@ -1,24 +1,25 @@
-const MindAR = requires("mind-ar-sdk");
+// create an AR scene
+const scene = new MindAR.Scene();
 
-// Load the video file
-const videoFile = "mp4.mp4";
-const video = new MindAR.Video(videoFile);
-
-// Set up the AR marker
-const arMarkerFile = "download1.jpg";
-const arMarker = new MindAR.ARMarker(arMarkerFile);
-
-// Create a new AR project
-const project = new MindAR.ARProject();
-
-// Add the video and AR marker to the project
-project.addVideo(video);
-project.addMarker(arMarker);
-
-// Set up the trigger to play the video when the AR marker is scanned
-project.addTrigger(arMarker, function () {
-  video.play();
+// add a video element to the scene
+const video = document.createElement("video");
+video.src = "mp4.mp4";
+video.autoplay = true;
+video.loop = true;
+const videoTexture = new MindAR.VideoTexture(video);
+const videoPlane = new MindAR.Plane({
+  width: 2,
+  height: 1.5,
+  texture: videoTexture,
 });
+scene.add(videoPlane);
 
-// Start the Mind AR app and scan the AR marker to play the video
-MindAR.startApp(project);
+// detect a trigger image and play the video when detected
+const tracker = new MindAR.ImageTracker();
+const triggerImage = new MindAR.Image("download1.jpg");
+tracker.addImage(triggerImage, () => {
+  video.play();
+  videoPlane.position.copy(triggerImage.position);
+  videoPlane.rotation.copy(triggerImage.rotation);
+});
+scene.add(tracker);
